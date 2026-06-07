@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    title: 'Skyline Residence',
+    category: 'Residential',
+    year: 2023,
+    location: 'Zurich, Switzerland',
+    img: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop',
+  },
+  {
+    title: 'Metropolitan Plaza',
+    category: 'Commercial',
+    year: 2022,
+    location: 'New York, USA',
+    img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&h=400&fit=crop',
+  },
+  {
+    title: 'The Glass Pavilion',
+    category: 'Cultural',
+    year: 2023,
+    location: 'Oslo, Norway',
+    img: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop',
+  },
+  {
+    title: 'Riverside Lofts',
+    category: 'Residential',
+    year: 2021,
+    location: 'London, UK',
+    img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop',
+  },
+  {
+    title: 'Nordic Cultural Center',
+    category: 'Cultural',
+    year: 2022,
+    location: 'Stockholm, Sweden',
+    img: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&h=400&fit=crop',
+  },
+  {
+    title: 'Desert Oasis Villa',
+    category: 'Residential',
+    year: 2023,
+    location: 'Dubai, UAE',
+    img: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600&h=400&fit=crop',
+  },
+  {
+    title: 'Harbor Commerce Hub',
+    category: 'Commercial',
+    year: 2023,
+    location: 'Amsterdam, Netherlands',
+    img: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?w=600&h=400&fit=crop',
+  },
+  {
+    title: 'Vertical Garden Tower',
+    category: 'Urban Design',
+    year: 2022,
+    location: 'Singapore',
+    img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop',
+  },
+  {
+    title: 'Studio Loft Interiors',
+    category: 'Interior',
+    year: 2021,
+    location: 'Paris, France',
+    img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop',
+  },
+];
+
+const tabs = ['All Projects', 'Residential', 'Commercial', 'Urban Design', 'Cultural', 'Interior'];
+---
+
+<Layout title="Projects — Architects" activePage="projects">
+  <main class="px-24 pt-28 pb-24">
+    <div class="mb-8 flex flex-col gap-3">
+      <h1 class="text-4xl font-black text-gray-900">Portfolio</h1>
+      <p class="max-w-sm text-sm leading-relaxed text-gray-500">
+        A curated selection of our architectural achievements across residential, commercial, and urban environments.
+      </p>
+    </div>
+
+    <div class="mb-1 flex items-center gap-2">
+      {
+        tabs.map((tab) => (
+          <button
+            data-filter={tab === 'All Projects' ? 'all' : tab}
+            class={`filter-btn rounded px-4 py-2 text-xs font-semibold transition-colors ${tab === 'All Projects' ? 'bg-blue-600 text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+            {tab}
+          </button>
+        ))
+      }
+    </div>
+
+    <hr class="mb-10 border-gray-200" />
+
+    <div class="grid grid-cols-3 gap-x-8 gap-y-12" id="project-grid">
+      {
+        projects.map(({ title, category, year, location, img }) => (
+          <div class="project-card flex flex-col gap-3" data-category={category}>
+            <img src={img} alt={title} class="aspect-video w-full object-cover" />
+            <div class="flex flex-col gap-1">
+              <div class="flex items-center justify-between">
+                <span class="text-sm font-bold text-gray-900">{title}</span>
+                <span class="text-xs text-gray-400">{year}</span>
+              </div>
+              <div class="flex items-center gap-1 text-xs">
+                <span class="font-semibold text-blue-600">{category}</span>
+                <span class="text-gray-400">•</span>
+                <span class="text-gray-400">{location}</span>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.project-card');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter!;
+
+      buttons.forEach((b) => {
+        b.classList.remove('bg-blue-600', 'text-white');
+        b.classList.add('text-gray-600');
+      });
+      btn.classList.add('bg-blue-600', 'text-white');
+      btn.classList.remove('text-gray-600');
+
+      cards.forEach((card) => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.style.display = match ? '' : 'none';
+      });
+    });
+  });
+</script>

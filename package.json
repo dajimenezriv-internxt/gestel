@@ -1,19 +1,28 @@
 {
   "name": "gestel",
   "type": "module",
-  "version": "0.0.1",
-  "engines": {
-    "node": ">=22.12.0"
-  },
+  "version": "1.0.0",
+  "license": "UNLICENSED",
   "scripts": {
-    "dev": "astro dev",
+    "========== Checks ==========": "",
+    "astro": "astro",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "check-deps": "npm-check-updates -u",
+    "dev": "astro dev",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write",
+    "preview": "astro preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.4.4",
     "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
+    "npm-check-updates": "^22.2.1",
+    "prettier": "^3.8.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.8.0"
   }
 }

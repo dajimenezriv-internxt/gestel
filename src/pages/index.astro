@@ -1,17 +1,288 @@
 ---
-import "../styles/global.css";
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Architects" activePage="home">
+  <!-- HERO -->
+  <section
+    class="relative flex min-h-screen items-center justify-center bg-cover bg-center"
+    style="background-image: url('https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-01.DncocLTZ_Z1iHPWl.webp');">
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <div class="relative flex flex-col items-center px-4 text-center text-white">
+      <h1 class="mb-4 text-7xl leading-none font-black tracking-tight uppercase">
+        Form &amp;<br />Function
+      </h1>
+      <p class="mb-10 text-xs font-semibold tracking-[0.25em] text-gray-200 uppercase">Defining modern spaces through precision and soul</p>
+      <div class="flex items-center gap-4">
+        <a
+          href="#projects"
+          class="bg-blue-600 px-8 py-3 text-xs font-bold tracking-widest text-white uppercase no-underline transition-colors hover:bg-blue-700">
+          View Portfolio
+        </a>
+        <a
+          href="#about"
+          class="border border-white px-8 py-3 text-xs font-bold tracking-widest text-white uppercase no-underline transition-colors hover:bg-white/10">
+          Our Story
+        </a>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-white">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="projects" class="bg-white px-24 py-24">
+    <div class="mb-12 flex items-end justify-between">
+      <div class="flex flex-col gap-2">
+        <span class="text-xs font-bold tracking-widest text-blue-600 uppercase">Portfolio</span>
+        <h2 class="text-4xl font-black tracking-tight text-gray-900 uppercase">Selected Works</h2>
+      </div>
+      <a
+        href="/projects"
+        class="flex items-center gap-2 text-xs font-bold tracking-widest text-gray-900 uppercase no-underline transition-colors hover:text-blue-600">
+        All Projects
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+
+    <div class="flex gap-8">
+      <div class="flex flex-1 flex-col gap-8">
+        {
+          [
+            {
+              src: 'https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-03.XlXYGe1W_1lS2cL.webp',
+              title: 'The Concrete Residence',
+              tag: 'Residential / 2023',
+            },
+            {
+              src: 'https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-05.CMNqZxPt_1twyWb.webp',
+              title: 'Urban Loft III',
+              tag: 'Interior / 2021',
+            },
+          ].map(({ src, title, tag }) => (
+            <div class="flex flex-col gap-2">
+              <img src={src} alt={title} class="w-full object-cover" />
+              <span class="mt-1 text-xs font-bold tracking-widest text-gray-900 uppercase">{title}</span>
+              <span class="text-xs font-bold tracking-widest text-blue-600 uppercase">{tag}</span>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="flex flex-1 flex-col gap-8 pt-20">
+        {
+          [
+            {
+              src: 'https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-04.B3qtUrtC_1IuDpk.webp',
+              title: 'Linear Pavilion',
+              tag: 'Cultural / 2022',
+              featured: false,
+            },
+            {
+              src: 'https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-06.CsiKihvD_Z15Tomr.webp',
+              title: 'Glass House Extension',
+              tag: 'Residential / 2023',
+              featured: true,
+            },
+          ].map(({ src, title, tag, featured }) => (
+            <div class="flex flex-col gap-2">
+              <img src={src} alt={title} class="w-full object-cover" />
+              <div class="mt-1 flex items-center justify-between">
+                <span class={`text-xs font-bold tracking-widest uppercase ${featured ? 'text-blue-600' : 'text-gray-900'}`}>{title}</span>
+                {featured && (
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#2563eb"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                )}
+              </div>
+              <span class="text-xs font-bold tracking-widest text-blue-600 uppercase">{tag}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="flex items-center justify-around border-b border-gray-100 bg-white px-16 py-10">
+    {
+      [
+        { value: '15+', label: 'Years Experience' },
+        { value: '240', label: 'Projects Built' },
+        { value: '12', label: 'Global Awards' },
+        { value: '04', label: 'Global Offices' },
+      ].map(({ value, label }) => (
+        <div class="flex flex-col gap-1">
+          <span class="text-4xl font-black text-blue-600">{value}</span>
+          <span class="text-xs font-bold tracking-widest text-gray-500 uppercase">{label}</span>
+        </div>
+      ))
+    }
+  </section>
+
+  <!-- PHILOSOPHY & JOURNEY -->
+  <section id="about" class="flex gap-20 bg-white px-24 py-24">
+    <div class="flex flex-1 flex-col gap-6">
+      <div class="flex items-center gap-3">
+        <div class="h-px w-8 bg-gray-400"></div>
+        <span class="text-xs font-bold tracking-widest text-blue-600 uppercase">Philosophy</span>
+      </div>
+      <h2 class="text-3xl leading-tight font-black text-gray-900">
+        Architecture is a silent language,<br />balancing form and spirit.
+      </h2>
+      <p class="text-sm leading-relaxed text-gray-600">
+        At Studio Alpha, we believe that every structure has a responsibility to its environment and its inhabitants. Our approach is rooted
+        in <strong>essentialism</strong>—stripping away the superfluous to reveal the core character of a site.
+      </p>
+      <p class="text-sm leading-relaxed text-gray-600">
+        We don't just build walls; we curate light, texture, and movement. Our designs prioritize sustainability not as a feature, but as a
+        foundational principle of modern longevity.
+      </p>
+      <img
+        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=460&h=380&fit=crop"
+        alt="Arched doorway with plants"
+        class="mt-2 w-full object-cover"
+      />
+    </div>
+
+    <div class="flex flex-1 flex-col gap-6 pt-32">
+      <div class="flex items-center gap-3">
+        <div class="h-px w-8 bg-gray-400"></div>
+        <span class="text-xs font-bold tracking-widest text-blue-600 uppercase">Our Journey</span>
+      </div>
+      <h2 class="text-3xl leading-tight font-black text-gray-900">From a small studio to a global presence.</h2>
+
+      <div class="mt-4 flex flex-col gap-8">
+        {
+          [
+            {
+              year: '2008',
+              title: 'Foundation',
+              desc: 'Founded by Marcus Vane in a small garage in Berlin with a vision for modular living.',
+            },
+            {
+              year: '2014',
+              title: 'Urban Expansion',
+              desc: "Completed the award-winning 'Vertigo Tower', redefining mixed-use vertical spaces.",
+            },
+            {
+              year: '2023',
+              title: 'Sustainability Award',
+              desc: "Named 'Firm of the Year' for our commitment to carbon-neutral construction techniques.",
+            },
+          ].map(({ year, title, desc }) => (
+            <div class="flex gap-4">
+              <div class="flex flex-col items-center pt-1">
+                <div class="h-3 w-3 shrink-0 rounded-full bg-blue-500" />
+                <div class="mt-2 w-px flex-1 bg-gray-200" />
+              </div>
+              <div class="flex flex-col gap-1 pb-2">
+                <span class="text-xs font-bold text-blue-600">{year}</span>
+                <span class="text-sm font-bold text-gray-900">{title}</span>
+                <span class="text-xs leading-relaxed text-gray-500 italic">{desc}</span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" class="bg-white px-24 py-24">
+    <div class="mb-12 flex items-start justify-between">
+      <div class="flex flex-col gap-2">
+        <div class="flex items-center gap-3">
+          <div class="h-px w-8 bg-gray-400"></div>
+          <span class="text-xs font-bold tracking-widest text-blue-600 uppercase">The Team</span>
+        </div>
+        <h2 class="text-3xl font-black text-gray-900">The Minds Behind Alpha</h2>
+      </div>
+      <a
+        href="#"
+        class="mt-2 flex items-center gap-2 text-sm font-semibold text-blue-600 no-underline transition-colors hover:text-blue-800">
+        Join Our Team
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+
+    <div class="flex gap-6">
+      {
+        [
+          {
+            name: 'Marcus Vane',
+            role: 'Principal Architect',
+            img: 'https://images.unsplash.com/photo-1557862921-37829c790f19?w=400&h=400&fit=crop&crop=face',
+          },
+          {
+            name: 'Elena Rossi',
+            role: 'Lead Interior Designer',
+            img: 'https://images.unsplash.com/photo-1611432579699-484f7990b127?w=400&h=400&fit=crop&crop=face',
+          },
+          {
+            name: 'David Chen',
+            role: 'Structural Director',
+            img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face',
+          },
+          {
+            name: 'Sarah Jenkins',
+            role: 'Sustainability Expert',
+            img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face',
+          },
+        ].map(({ name, role, img }) => (
+          <div class="flex flex-1 flex-col gap-3">
+            <img src={img} alt={name} class="aspect-square w-full object-cover object-top" />
+            <div class="flex flex-col gap-1">
+              <span class="text-sm font-bold text-gray-900">{name}</span>
+              <span class="text-xs font-bold tracking-widest text-blue-600 uppercase">{role}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
