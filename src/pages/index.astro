@@ -1,143 +1,43 @@
 ---
+import heroImage from '../assets/hero.jpeg';
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Architects" >
+<Layout title="Architects">
   <!-- HERO -->
-  <section
-    class="relative flex min-h-screen items-center justify-center bg-cover bg-center"
-    style="background-image: url('https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-01.DncocLTZ_Z1iHPWl.webp');">
-    <div class="absolute inset-0 bg-black/40"></div>
+  <section class="flex min-h-screen items-end bg-cover bg-center" style={`background-image: url('${heroImage.src}')`}>
+    <div class="absolute inset-0 bg-black/55"></div>
 
-    <div class="relative flex flex-col items-center px-4 text-center text-white">
-      <h1 class="mb-4 text-7xl leading-none font-black tracking-tight uppercase">
-        Form &amp;<br />Function
+    <div class="relative w-full max-w-3xl px-16 pb-24">
+      <h1 class="font-sans leading-[0.9] font-semibold">
+        <span class="block text-[clamp(4rem,9vw,8rem)] text-white">Tu XXXXX,</span>
+        <span class="text-gold block text-[clamp(3.5rem,8.5vw,7.5rem)] italic">en Castellón.</span>
       </h1>
-      <p class="mb-10 text-xs font-semibold tracking-[0.25em] text-gray-200 uppercase">Defining modern spaces through precision and soul</p>
-      <div class="flex items-center gap-4">
+      <p class="mt-6 max-w-md font-sans text-lg leading-relaxed text-white/85 italic">
+        Cortes, degradados y barba en el corazón de Benimaclet. Atención personalizada, ambiente del barrio y reserva online en Booksy.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center gap-3">
         <a
-          href="#projects"
-          class="bg-blue-600 px-8 py-3 text-xs font-bold tracking-widest text-white uppercase no-underline transition-colors hover:bg-blue-700">
-          View Portfolio
+          href="#"
+          class="bg-gold px-6 py-3 text-xs font-bold tracking-widest text-black uppercase no-underline transition-opacity hover:opacity-90">
+          LLAMAR
         </a>
         <a
-          href="#about"
-          class="border border-white px-8 py-3 text-xs font-bold tracking-widest text-white uppercase no-underline transition-colors hover:bg-white/10">
-          Our Story
+          href="tel:622730233"
+          class="border border-white/70 px-6 py-3 text-xs font-bold tracking-widest text-white uppercase no-underline transition-colors hover:bg-white/10">
+          622 73 02 33
         </a>
-      </div>
-    </div>
-
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-white">
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round">
-        <polyline points="6 9 12 15 18 9"></polyline>
-      </svg>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section id="projects" class="bg-white px-24 py-24">
-    <div class="mb-12 flex items-end justify-between">
-      <div class="flex flex-col gap-2">
-        <span class="text-xs font-bold tracking-widest text-blue-600 uppercase">Portfolio</span>
-        <h2 class="text-4xl font-black tracking-tight text-gray-900 uppercase">Selected Works</h2>
-      </div>
-      <a
-        href="/projects"
-        class="flex items-center gap-2 text-xs font-bold tracking-widest text-gray-900 uppercase no-underline transition-colors hover:text-blue-600">
-        All Projects
-        <svg
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </a>
-    </div>
-
-    <div class="flex gap-8">
-      <div class="flex flex-1 flex-col gap-8">
-        {
-          [
-            {
-              src: 'https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-03.XlXYGe1W_1lS2cL.webp',
-              title: 'The Concrete Residence',
-              tag: 'Residential / 2023',
-            },
-            {
-              src: 'https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-05.CMNqZxPt_1twyWb.webp',
-              title: 'Urban Loft III',
-              tag: 'Interior / 2021',
-            },
-          ].map(({ src, title, tag }) => (
-            <div class="flex flex-col gap-2">
-              <img src={src} alt={title} class="w-full object-cover" />
-              <span class="mt-1 text-xs font-bold tracking-widest text-gray-900 uppercase">{title}</span>
-              <span class="text-xs font-bold tracking-widest text-blue-600 uppercase">{tag}</span>
-            </div>
-          ))
-        }
-      </div>
-
-      <div class="flex flex-1 flex-col gap-8 pt-20">
-        {
-          [
-            {
-              src: 'https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-04.B3qtUrtC_1IuDpk.webp',
-              title: 'Linear Pavilion',
-              tag: 'Cultural / 2022',
-              featured: false,
-            },
-            {
-              src: 'https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-06.CsiKihvD_Z15Tomr.webp',
-              title: 'Glass House Extension',
-              tag: 'Residential / 2023',
-              featured: true,
-            },
-          ].map(({ src, title, tag, featured }) => (
-            <div class="flex flex-col gap-2">
-              <img src={src} alt={title} class="w-full object-cover" />
-              <div class="mt-1 flex items-center justify-between">
-                <span class={`text-xs font-bold tracking-widest uppercase ${featured ? 'text-blue-600' : 'text-gray-900'}`}>{title}</span>
-                {featured && (
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#2563eb"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
-                )}
-              </div>
-              <span class="text-xs font-bold tracking-widest text-blue-600 uppercase">{tag}</span>
-            </div>
-          ))
-        }
+        <a
+          href="https://instagram.com/barberobenimaclet"
+          class="border border-white/70 px-6 py-3 text-xs font-bold tracking-widest text-white uppercase no-underline transition-colors hover:bg-white/10">
+          @gestel
+        </a>
       </div>
     </div>
   </section>
 
   <!-- STATS -->
-  <section class="flex items-center justify-around border-b border-gray-100 bg-white px-16 py-10">
+  <section class="flex items-center justify-around border-b border-gray-100 bg-gray-100 px-16 py-10">
     {
       [
         { value: '15+', label: 'Years Experience' },
@@ -154,7 +54,7 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- PHILOSOPHY & JOURNEY -->
-  <section id="about" class="flex gap-20 bg-white px-24 py-24">
+  <section id="about" class="m-auto flex w-250 gap-20 bg-white py-24">
     <div class="flex flex-1 flex-col gap-6">
       <div class="flex items-center gap-3">
         <div class="h-px w-8 bg-gray-400"></div>
@@ -214,6 +114,99 @@ import Layout from '../layouts/Layout.astro';
                 <span class="text-sm font-bold text-gray-900">{title}</span>
                 <span class="text-xs leading-relaxed text-gray-500 italic">{desc}</span>
               </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="projects" class="mx-auto w-250 py-24">
+    <div class="mb-12 flex items-end justify-between">
+      <div class="flex flex-col gap-2">
+        <span class="text-xs font-bold tracking-widest text-blue-600 uppercase">Portfolio</span>
+        <h2 class="text-4xl font-black tracking-tight text-gray-900 uppercase">Últimos proyectos</h2>
+      </div>
+      <a
+        href="/projects"
+        class="flex items-center gap-2 font-bold tracking-widest text-gray-900 uppercase no-underline transition-colors hover:text-blue-600">
+        Todos los proyectos
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+
+    <div class="flex items-center gap-8">
+      <div class="flex flex-1 flex-col gap-8">
+        {
+          [
+            {
+              src: 'https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-03.XlXYGe1W_1lS2cL.webp',
+              title: 'The Concrete Residence',
+              tag: 'Residential / 2023',
+            },
+            {
+              src: 'https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-05.CMNqZxPt_1twyWb.webp',
+              title: 'Urban Loft III',
+              tag: 'Interior / 2021',
+            },
+          ].map(({ src, title, tag }) => (
+            <div class="flex flex-col gap-2">
+              <img src={src} alt={title} class="w-full object-cover" />
+              <span class="mt-1 text-xs font-bold tracking-widest text-gray-900 uppercase">{title}</span>
+              <span class="text-xs font-bold tracking-widest text-blue-600 uppercase">{tag}</span>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="flex flex-1 flex-col gap-8 pt-20">
+        {
+          [
+            {
+              src: 'https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-04.B3qtUrtC_1IuDpk.webp',
+              title: 'Linear Pavilion',
+              tag: 'Cultural / 2022',
+              featured: false,
+            },
+            {
+              src: 'https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-06.CsiKihvD_Z15Tomr.webp',
+              title: 'Glass House Extension',
+              tag: 'Residential / 2023',
+              featured: true,
+            },
+          ].map(({ src, title, tag, featured }) => (
+            <div class="flex flex-col gap-2">
+              <img src={src} alt={title} class="w-full object-cover" />
+              <div class="mt-1 flex items-center justify-between">
+                <span class={`text-xs font-bold tracking-widest uppercase ${featured ? 'text-blue-600' : 'text-gray-900'}`}>{title}</span>
+                {featured && (
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#2563eb"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                )}
+              </div>
+              <span class="text-xs font-bold tracking-widest text-blue-600 uppercase">{tag}</span>
             </div>
           ))
         }
