@@ -1,0 +1,15 @@
+<section class="border-border bg-secondary flex items-center justify-around border-b px-16 py-10">
+  {
+    [
+      { value: '15+', label: 'Years Experience' },
+      { value: '240', label: 'Projects Built' },
+      { value: '12', label: 'Global Awards' },
+      { value: '04', label: 'Global Offices' },
+    ].map(({ value, label }) => (
+      <div class="flex flex-col gap-1">
+        <span class="text-primary text-4xl font-black">{value}</span>
+        <span class="text-muted-foreground text-xs font-bold tracking-widest uppercase">{label}</span>
+      </div>
+    ))
+  }
+</section>

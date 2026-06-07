@@ -73,8 +73,8 @@ const tabs = ['All Projects', 'Residential', 'Commercial', 'Urban Design', 'Cult
 <Layout title="Projects — Architects">
   <main class="px-24 pt-28 pb-24">
     <div class="mb-8 flex flex-col gap-3">
-      <h1 class="text-4xl font-black text-gray-900">Portfolio</h1>
-      <p class="max-w-sm text-sm leading-relaxed text-gray-500">
+      <h1 class="text-foreground text-4xl font-black">Portfolio</h1>
+      <p class="text-muted-foreground max-w-sm text-sm leading-relaxed">
         A curated selection of our architectural achievements across residential, commercial, and urban environments.
       </p>
     </div>
@@ -84,14 +84,14 @@ const tabs = ['All Projects', 'Residential', 'Commercial', 'Urban Design', 'Cult
         tabs.map((tab) => (
           <button
             data-filter={tab === 'All Projects' ? 'all' : tab}
-            class={`filter-btn rounded px-4 py-2 text-xs font-semibold transition-colors ${tab === 'All Projects' ? 'bg-blue-600 text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+            class={`filter-btn rounded px-4 py-2 text-xs font-semibold transition-colors ${tab === 'All Projects' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground'}`}>
             {tab}
           </button>
         ))
       }
     </div>
 
-    <hr class="mb-10 border-gray-200" />
+    <hr class="border-border mb-10" />
 
     <div class="grid grid-cols-3 gap-x-8 gap-y-12" id="project-grid">
       {
@@ -100,13 +100,13 @@ const tabs = ['All Projects', 'Residential', 'Commercial', 'Urban Design', 'Cult
             <img src={img} alt={title} class="aspect-video w-full object-cover" />
             <div class="flex flex-col gap-1">
               <div class="flex items-center justify-between">
-                <span class="text-sm font-bold text-gray-900">{title}</span>
-                <span class="text-xs text-gray-400">{year}</span>
+                <span class="text-foreground text-sm font-bold">{title}</span>
+                <span class="text-muted-foreground text-xs">{year}</span>
               </div>
               <div class="flex items-center gap-1 text-xs">
-                <span class="font-semibold text-blue-600">{category}</span>
-                <span class="text-gray-400">•</span>
-                <span class="text-gray-400">{location}</span>
+                <span class="text-primary font-semibold">{category}</span>
+                <span class="text-muted-foreground">•</span>
+                <span class="text-muted-foreground">{location}</span>
               </div>
             </div>
           </div>
@@ -125,11 +125,11 @@ const tabs = ['All Projects', 'Residential', 'Commercial', 'Urban Design', 'Cult
       const filter = btn.dataset.filter!;
 
       buttons.forEach((b) => {
-        b.classList.remove('bg-blue-600', 'text-white');
-        b.classList.add('text-gray-600');
+        b.classList.remove('bg-primary', 'text-primary-foreground');
+        b.classList.add('text-muted-foreground');
       });
-      btn.classList.add('bg-blue-600', 'text-white');
-      btn.classList.remove('text-gray-600');
+      btn.classList.add('bg-primary', 'text-primary-foreground');
+      btn.classList.remove('text-muted-foreground');
 
       cards.forEach((card) => {
         const match = filter === 'all' || card.dataset.category === filter;

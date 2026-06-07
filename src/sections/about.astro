@@ -1,0 +1,66 @@
+<section id="about" class="bg-background m-auto flex w-250 gap-20 py-24">
+  <div class="flex flex-1 flex-col gap-6">
+    <div class="flex items-center gap-3">
+      <div class="bg-muted-foreground h-px w-8"></div>
+      <span class="text-primary text-xs font-bold tracking-widest uppercase">Philosophy</span>
+    </div>
+    <h2 class="text-foreground text-3xl leading-tight font-black">
+      Architecture is a silent language,<br />balancing form and spirit.
+    </h2>
+    <p class="text-muted-foreground text-sm leading-relaxed">
+      At Studio Alpha, we believe that every structure has a responsibility to its environment and its inhabitants. Our approach is rooted
+      in <strong>essentialism</strong>—stripping away the superfluous to reveal the core character of a site.
+    </p>
+    <p class="text-muted-foreground text-sm leading-relaxed">
+      We don't just build walls; we curate light, texture, and movement. Our designs prioritize sustainability not as a feature, but as a
+      foundational principle of modern longevity.
+    </p>
+    <img
+      src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=460&h=380&fit=crop"
+      alt="Arched doorway with plants"
+      class="mt-2 w-full object-cover"
+    />
+  </div>
+
+  <div class="flex flex-1 flex-col gap-6 pt-32">
+    <div class="flex items-center gap-3">
+      <div class="bg-muted-foreground h-px w-8"></div>
+      <span class="text-primary text-xs font-bold tracking-widest uppercase">Our Journey</span>
+    </div>
+    <h2 class="text-foreground text-3xl leading-tight font-black">From a small studio to a global presence.</h2>
+
+    <div class="mt-4 flex flex-col gap-8">
+      {
+        [
+          {
+            year: '2008',
+            title: 'Foundation',
+            desc: 'Founded by Marcus Vane in a small garage in Berlin with a vision for modular living.',
+          },
+          {
+            year: '2014',
+            title: 'Urban Expansion',
+            desc: "Completed the award-winning 'Vertigo Tower', redefining mixed-use vertical spaces.",
+          },
+          {
+            year: '2023',
+            title: 'Sustainability Award',
+            desc: "Named 'Firm of the Year' for our commitment to carbon-neutral construction techniques.",
+          },
+        ].map(({ year, title, desc }) => (
+          <div class="flex gap-4">
+            <div class="flex flex-col items-center pt-1">
+              <div class="bg-primary h-3 w-3 shrink-0 rounded-full" />
+              <div class="bg-border mt-2 w-px flex-1" />
+            </div>
+            <div class="flex flex-col gap-1 pb-2">
+              <span class="text-primary text-xs font-bold">{year}</span>
+              <span class="text-foreground text-sm font-bold">{title}</span>
+              <span class="text-muted-foreground text-xs leading-relaxed italic">{desc}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

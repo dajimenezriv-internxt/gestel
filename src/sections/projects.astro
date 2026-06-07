@@ -1,0 +1,92 @@
+<section id="projects" class="mx-auto w-250 py-24">
+  <div class="mb-12 flex items-end justify-between">
+    <div class="flex flex-col gap-2">
+      <span class="text-primary text-xs font-bold tracking-widest uppercase">Portfolio</span>
+      <h2 class="text-foreground text-4xl font-black tracking-tight uppercase">Últimos proyectos</h2>
+    </div>
+    <a
+      href="/projects"
+      class="text-foreground hover:text-primary flex items-center gap-2 font-bold tracking-widest uppercase no-underline transition-colors">
+      Todos los proyectos
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="flex items-center gap-8">
+    <div class="flex flex-1 flex-col gap-8">
+      {
+        [
+          {
+            src: 'https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-03.XlXYGe1W_1lS2cL.webp',
+            title: 'The Concrete Residence',
+            tag: 'Residential / 2023',
+          },
+          {
+            src: 'https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-05.CMNqZxPt_1twyWb.webp',
+            title: 'Urban Loft III',
+            tag: 'Interior / 2021',
+          },
+        ].map(({ src, title, tag }) => (
+          <div class="flex flex-col gap-2">
+            <img src={src} alt={title} class="w-full object-cover" />
+            <span class="text-foreground mt-1 text-xs font-bold tracking-widest uppercase">{title}</span>
+            <span class="text-primary text-xs font-bold tracking-widest uppercase">{tag}</span>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="flex flex-1 flex-col gap-8 pt-20">
+      {
+        [
+          {
+            src: 'https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-04.B3qtUrtC_1IuDpk.webp',
+            title: 'Linear Pavilion',
+            tag: 'Cultural / 2022',
+            featured: false,
+          },
+          {
+            src: 'https://3dinterior.mail-nearmelab.workers.dev/_astro/home-page-img-06.CsiKihvD_Z15Tomr.webp',
+            title: 'Glass House Extension',
+            tag: 'Residential / 2023',
+            featured: true,
+          },
+        ].map(({ src, title, tag, featured }) => (
+          <div class="flex flex-col gap-2">
+            <img src={src} alt={title} class="w-full object-cover" />
+            <div class="mt-1 flex items-center justify-between">
+              <span class={`text-xs font-bold tracking-widest uppercase ${featured ? 'text-primary' : 'text-foreground'}`}>{title}</span>
+              {featured && (
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-primary">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              )}
+            </div>
+            <span class="text-primary text-xs font-bold tracking-widest uppercase">{tag}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

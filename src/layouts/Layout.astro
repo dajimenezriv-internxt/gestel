@@ -41,17 +41,17 @@ const socialLinks = [
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   </head>
-  <body class="font-sans">
+  <body class="bg-background text-foreground font-sans">
     <!-- NAV -->
-    <nav class="fixed top-0 right-0 left-0 z-50 flex justify-center bg-white px-8 py-4 shadow-sm">
+    <nav class="bg-background fixed top-0 right-0 left-0 z-50 flex justify-center px-8 py-4 shadow-sm">
       <div class="flex w-250 items-center justify-between">
-        <a href="/#" class="flex items-center gap-2 text-2xl font-black text-gray-800 uppercase">Gestel</a>
+        <a href="/#" class="text-foreground flex items-center gap-2 text-2xl font-black uppercase">Gestel</a>
 
         <ul class="flex gap-12">
           {
             navLinks.map(({ label, href }) => (
               <li>
-                <a href={href} class="text-sm font-medium text-gray-600 uppercase hover:text-gray-900">
+                <a href={href} class="text-muted-foreground hover:text-foreground text-sm font-medium uppercase">
                   {label}
                 </a>
               </li>
@@ -61,7 +61,7 @@ const socialLinks = [
 
         <a
           href="/#contact"
-          class="flex items-center gap-2 rounded bg-blue-600 px-5 py-2 text-sm font-semibold text-white no-underline transition-colors hover:bg-blue-700">
+          class="bg-primary text-primary-foreground hover:bg-primary/90 flex items-center gap-2 rounded px-5 py-2 text-sm font-semibold no-underline transition-colors">
           <svg
             width="14"
             height="14"
@@ -83,17 +83,17 @@ const socialLinks = [
     <slot />
 
     <!-- FOOTER -->
-    <footer id="contact" class="bg-gray-100">
+    <footer id="contact" class="bg-secondary">
       <div class="flex gap-16 px-24 py-16">
         <!-- Brand -->
         <div class="flex flex-2 flex-col gap-4">
           <div class="flex items-center gap-2">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#2563eb" xmlns="http://www.w3.org/2000/svg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-primary" xmlns="http://www.w3.org/2000/svg">
               <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
             </svg>
-            <span class="text-sm font-black tracking-widest text-gray-900 uppercase">Studio Alpha</span>
+            <span class="text-foreground text-sm font-black tracking-widest uppercase">Studio Alpha</span>
           </div>
-          <p class="max-w-xs text-sm leading-relaxed text-gray-500">
+          <p class="text-muted-foreground max-w-xs text-sm leading-relaxed">
             A global architectural practice focused on sustainable design, innovative urbanism, and the relationship between people and
             built environments.
           </p>
@@ -101,11 +101,11 @@ const socialLinks = [
 
         <!-- Connect -->
         <div class="flex flex-1 flex-col gap-4">
-          <span class="text-xs font-bold tracking-widest text-gray-900 uppercase">Connect</span>
+          <span class="text-foreground text-xs font-bold tracking-widest uppercase">Connect</span>
           <div class="flex flex-col gap-3">
             {
               socialLinks.map(({ label, icon }) => (
-                <a href="#" class="flex items-center gap-2 text-sm text-gray-600 no-underline transition-colors hover:text-blue-600">
+                <a href="#" class="text-muted-foreground hover:text-primary flex items-center gap-2 text-sm no-underline transition-colors">
                   <svg
                     width="16"
                     height="16"
@@ -126,22 +126,23 @@ const socialLinks = [
 
         <!-- Inquiries -->
         <div class="flex flex-1 flex-col gap-4">
-          <span class="text-xs font-bold tracking-widest text-gray-900 uppercase">Inquiries</span>
+          <span class="text-foreground text-xs font-bold tracking-widest uppercase">Inquiries</span>
           <div class="flex flex-col gap-4">
             <div class="flex flex-col gap-1">
-              <span class="text-sm text-gray-500">General:</span>
+              <span class="text-muted-foreground text-sm">General:</span>
               <a
                 href="mailto:hello@studioalpha.com"
-                class="flex items-center gap-2 text-sm text-gray-900 no-underline transition-colors hover:text-blue-600">
+                class="text-foreground hover:text-primary flex items-center gap-2 text-sm no-underline transition-colors">
                 <svg
                   width="14"
                   height="14"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#2563eb"
+                  stroke="currentColor"
                   stroke-width="2"
                   stroke-linecap="round"
-                  stroke-linejoin="round">
+                  stroke-linejoin="round"
+                  class="text-primary">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
@@ -149,19 +150,20 @@ const socialLinks = [
               </a>
             </div>
             <div class="flex flex-col gap-1">
-              <span class="text-sm text-gray-500">Press:</span>
+              <span class="text-muted-foreground text-sm">Press:</span>
               <a
                 href="mailto:press@studioalpha.com"
-                class="flex items-center gap-2 text-sm text-gray-900 no-underline transition-colors hover:text-blue-600">
+                class="text-foreground hover:text-primary flex items-center gap-2 text-sm no-underline transition-colors">
                 <svg
                   width="14"
                   height="14"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#2563eb"
+                  stroke="currentColor"
                   stroke-width="2"
                   stroke-linecap="round"
-                  stroke-linejoin="round">
+                  stroke-linejoin="round"
+                  class="text-primary">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
@@ -173,14 +175,8 @@ const socialLinks = [
       </div>
 
       <!-- Bottom bar -->
-      <div class="flex items-center justify-between border-t border-gray-200 px-24 py-5">
-        <span class="text-xs tracking-widest text-gray-400 uppercase">© 2024 Studio Alpha Architecture. All rights reserved.</span>
-        <div class="flex items-center gap-6">
-          <a href="#" class="text-xs tracking-widest text-gray-400 uppercase no-underline transition-colors hover:text-gray-700"
-            >Privacy Policy</a
-          >
-          <a href="#" class="text-xs tracking-widest text-gray-400 uppercase no-underline transition-colors hover:text-gray-700">Terms</a>
-        </div>
+      <div class="border-border flex items-center justify-between border-t px-24 py-5">
+        <span class="text-muted-foreground text-xs tracking-widest uppercase">© 2026 Studio Alpha Architecture. All rights reserved.</span>
       </div>
     </footer>
   </body>

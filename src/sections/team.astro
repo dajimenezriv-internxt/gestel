@@ -1,0 +1,63 @@
+<section id="team" class="bg-background px-24 py-24">
+  <div class="mb-12 flex items-start justify-between">
+    <div class="flex flex-col gap-2">
+      <div class="flex items-center gap-3">
+        <div class="bg-muted-foreground h-px w-8"></div>
+        <span class="text-primary text-xs font-bold tracking-widest uppercase">The Team</span>
+      </div>
+      <h2 class="text-foreground text-3xl font-black">The Minds Behind Alpha</h2>
+    </div>
+    <a
+      href="#"
+      class="text-primary hover:text-primary/80 mt-2 flex items-center gap-2 text-sm font-semibold no-underline transition-colors">
+      Join Our Team
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <div class="flex gap-6">
+    {
+      [
+        {
+          name: 'Marcus Vane',
+          role: 'Principal Architect',
+          img: 'https://images.unsplash.com/photo-1557862921-37829c790f19?w=400&h=400&fit=crop&crop=face',
+        },
+        {
+          name: 'Elena Rossi',
+          role: 'Lead Interior Designer',
+          img: 'https://images.unsplash.com/photo-1611432579699-484f7990b127?w=400&h=400&fit=crop&crop=face',
+        },
+        {
+          name: 'David Chen',
+          role: 'Structural Director',
+          img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face',
+        },
+        {
+          name: 'Sarah Jenkins',
+          role: 'Sustainability Expert',
+          img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face',
+        },
+      ].map(({ name, role, img }) => (
+        <div class="flex flex-1 flex-col gap-3">
+          <img src={img} alt={name} class="aspect-square w-full object-cover object-top" />
+          <div class="flex flex-col gap-1">
+            <span class="text-foreground text-sm font-bold">{name}</span>
+            <span class="text-primary text-xs font-bold tracking-widest uppercase">{role}</span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
