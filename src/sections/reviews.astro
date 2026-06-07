@@ -1,0 +1,64 @@
+<section id="reviews" class="bg-background px-24 py-24">
+  <div class="mb-16 flex items-start justify-between">
+    <div class="flex flex-col gap-4">
+      <div class="flex items-center gap-3">
+        <div class="bg-muted-foreground h-px w-8"></div>
+        <span class="text-primary text-xs font-bold tracking-widest uppercase">Opiniones</span>
+      </div>
+      <h2 class="text-foreground font-sans text-7xl leading-tight font-semibold">
+        La voz <span class="text-primary italic">del cliente</span>.
+      </h2>
+    </div>
+
+    <div class="mt-2 flex gap-4">
+      {
+        [{ score: '3,9', platform: 'Google', count: '16' }].map(({ score, platform, count }) => (
+          <div class="border-border bg-secondary flex min-w-37.5 flex-col gap-3 border p-6">
+            <span class="text-primary font-sans text-5xl leading-none font-semibold">{score}</span>
+            <div class="text-primary text-sm tracking-widest">★★★★</div>
+            <span class="text-muted-foreground text-xs font-bold tracking-widest uppercase">
+              {platform} · {count}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="flex gap-6">
+    {
+      [
+        {
+          text: 'Excelente servicio!! Buena gestión y el precio acorde a todo el trabajo realizado y al acordado! Nuestra tienda quedó genial!',
+          name: 'Eva Galiana',
+          platform: 'Google',
+          link: 'https://maps.app.goo.gl/x8ydt7SHZvRiTgqv5',
+        },
+        {
+          text: 'Muy buen servicio y todo como lo acordamos',
+          name: 'Laura Rodríguez Olmedo',
+          platform: 'Google',
+          link: 'https://maps.app.goo.gl/JqHBUVLJYMiQBCyE8',
+        },
+        {
+          text: 'Excelente servicio',
+          name: 'Sergio Mendez Albuixech',
+          platform: 'Google',
+          link: 'https://maps.app.goo.gl/KntXKsKiPqqJiep18',
+        },
+      ].map(({ text, name, platform }) => (
+        <div class="border-border bg-secondary flex flex-1 flex-col gap-6 border p-8">
+          <div class="text-primary text-base tracking-widest">★★★★★</div>
+          <p class="text-foreground flex-1 font-sans text-sm leading-relaxed italic">{text}</p>
+          <div>
+            <div class="border-border mb-4 border-t" />
+            <div class="flex items-center justify-between">
+              <span class="text-muted-foreground text-xs font-bold tracking-widest uppercase">{name}</span>
+              <span class="text-muted-foreground text-xs font-bold tracking-widest uppercase">{platform}</span>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

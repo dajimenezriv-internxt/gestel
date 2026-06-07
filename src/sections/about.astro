@@ -1,8 +1,12 @@
+---
+import aboutImage from '../assets/about.jpeg';
+---
+
 <section id="about" class="bg-background m-auto flex w-250 gap-20 py-24">
   <div class="flex flex-1 flex-col gap-6">
     <div class="flex items-center gap-3">
       <div class="bg-muted-foreground h-px w-8"></div>
-      <span class="text-primary text-xs font-bold tracking-widest uppercase">Philosophy</span>
+      <span class="text-primary text-xs font-bold tracking-widest uppercase">Sobre nosotros</span>
     </div>
     <h2 class="text-foreground text-3xl leading-tight font-black">
       Architecture is a silent language,<br />balancing form and spirit.
@@ -16,8 +20,8 @@
       foundational principle of modern longevity.
     </p>
     <img
-      src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=460&h=380&fit=crop"
-      alt="Arched doorway with plants"
+      src={aboutImage.src}
+      alt="About us"
       class="mt-2 w-full object-cover"
     />
   </div>
